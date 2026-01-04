@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rhode Island Stone Wall Mapping Project</title>
+
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    
+    <link rel="preconnect" href="https://rsms.me/">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    
+    <div id="map"></div>
+    <div id="conditions-panel">
+      <button id="conditions-panel-toggle"></button>
+      <h2>Terms of use</h2>
+      <p>
+        
+      </p>
+    </div>
+
+    <main class="info-panel">
+        <div class="panel-header">
+            <h1 id="title">Rhode Island Stone Wall Mapping Project</h1>
+            <div class="author-line">
+                <span class="byline">By <a href="https://vosburgh.dev" target="_blank">Elliot Vosburgh</a></span>
+                <span class="role">Author & Founder</span>
+            </div>
+        </div>
+
+        <div class="panel-content">
+            <img src="lc_wall_cover.jpg" alt="Stone wall in Little Compton, RI" class="cover-image">
+            
+            <section class="intro">
+                <p> 
+                  The Rhode Island Stone Wall Mapping Project (RISWMP) was completed in 2025. It is the only comprehensive survey of its kind for Rhode Island, serving as the foundation for scientific and community initiatives state-wide.
+                </p>
+            </section>
+
+            <div class="citation-box">
+                <div class="citation-label">REQUIRED CITATION</div>
+                <p class="citation-text">
+                  Elliot Vosburgh (2025), <em>Rhode Island Stone Wall Mapping Project</em>
+                </p>
+                <p class="citation-sub">
+                  By using this data, you agree to attribute the Author. You further agree to adhere to the use conditions <span id="use-conditions">outlined here</span>. The Rhode Island Stone Wall Mapping Project is not affiliated with the University of Rhode Island.
+            </div>
+
+            <div class="details">
+                <p>
+                  Over 5,000 miles of walls were inventoried using an original methodology applied to the 2022 Rhode Island Statewide LiDAR dataset. The wall networks reveal a rich agricultural history, influenced by settlement patterns, indigenous relationships, topography, and soil.
+                </p>
+                <p>
+                  These relics are under threat from development, vandalism, and theft. RISWMP actively promotes historical preservation efforts throughout Southern New England.
+                </p>
+            </div>
+        </div>
+
+        <footer class="panel-footer">
+            <div class="links">
+                &copy; <a href="mailto:elliot@vosburgh.dev">Elliot Vosburgh</a>
+                <span class="divider">|</span>
+                &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors and <a href="https://carto.com/attributions">CARTO</a>
+            </div>
+        </footer>
+    </main>
+
+    <button id="panel-toggle" aria-label="Toggle Info Panel">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    </button>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script type="module" src="main.js"></script>
+  </body>
+</html>
