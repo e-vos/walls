@@ -49,13 +49,27 @@ toggleBtn.addEventListener('click', () => {
 const conditionsToggle = document.getElementById('use-conditions');
 const conditionsPanel = document.getElementById('conditions-panel');
 const conditionsPanelToggle = document.getElementById('conditions-panel-toggle');
+const backdrop = document.getElementById('modal-backdrop');
 
-conditionsToggle.addEventListener('click', () => {
-    conditionsPanel.classList.toggle('active');
-    conditionsPanelToggle.classList.toggle('active');
-});
+function openModal() {
+  conditionsPanel.classList.add('active');
+  backdrop.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
 
-conditionsPanelToggle.addEventListener('click', () => {
-    conditionsPanel.classList.toggle('active');
-    conditionsPanelToggle.classList.toggle('active');
+function closeModal() {
+  conditionsPanel.classList.remove('active');
+  backdrop.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+conditionsToggle.addEventListener('click', openModal);
+conditionsPanelToggle.addEventListener('click', closeModal);
+
+backdrop.addEventListener('click', closeModal);
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && conditionsPanel.classList.contains('active')) {
+    closeModal();
+  }
 });

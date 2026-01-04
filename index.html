@@ -5,26 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rhode Island Stone Wall Mapping Project</title>
 
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
 
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     
     <link rel="preconnect" href="https://rsms.me/">
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     
     <div id="map"></div>
-    <div id="conditions-panel">
-      <button id="conditions-panel-toggle"></button>
-      <h2>Terms of use</h2>
+
+    <div id="modal-backdrop" aria-hidden="true"></div>
+    <div id="conditions-panel" role="dialog" aria-modal="true" aria-labelledby="conditions-title">
+      <button id="conditions-panel-toggle" aria-label="Close terms">✕</button>
+      <h2 id="conditions-title">Terms of Use</h2>
       <p>
-        
+        <strong>1.</strong> The data is provided for non-commercial use only. Any use of the data, whether direct or indirect, that supports, enables, or is associated with a commercial enterprise, product, service, or revenue-generating activity is strictly prohibited without prior notarized written permission from Elliot Vosburgh (“the Author”). Prohibited activities include, but are not limited to, sale, licensing, subscription services, consulting, or incorporation into commercial products. Commercial products include but are not limited to wall building, stonemasonry, stone harvesting, and wall clearing.
+      </p>
+      <p>
+        <strong>2.</strong> Permission is granted to use, reproduce, and modify the data for personal, educational, or research purposes, provided that such use is strictly non-commercial. Any use of this data <em>must include</em> clear and visible attribution to the Author using the following format:
+      </p>
+      <p class="attribution"> Elliot Vosburgh (2025), Rhode Island Stone Wall Mapping Project</p>
+      <p>
+        <strong>3.</strong> The data is provided "as is," without warranty of any kind, express or implied. The Author makes no representations regarding the accuracy, completeness, or fitness of the data for any particular purpose and shall not be liable for any damages arising from its use.
+      </p>
+      <p>
+        <strong>4.</strong> Redistribution of the data, whether in original or modified form, is permitted only if these Terms of Use are included in full and proper attribution to the Author is maintained.
+      </p>
+      <p>
+        <strong>5.</strong> Any violation of these Terms of Use, including failure to provide proper attribution or engaging in prohibited commercial activities, will result in immediate termination of all rights granted under these terms. Upon termination, the user must cease all use of the data and destroy any copies in their possession.
+      </p>
+      <p>
+        <strong>6.</strong> All rights not expressly granted are reserved. Contact: <a href="mailto:elliot@vosburgh.dev">elliot@vosburgh.dev</a>
       </p>
     </div>
 
@@ -68,7 +83,7 @@
         <footer class="panel-footer">
             <div class="links">
                 &copy; <a href="mailto:elliot@vosburgh.dev">Elliot Vosburgh</a>
-                <span class="divider">|</span>
+                <span class="divider">/</span>
                 &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors and <a href="https://carto.com/attributions">CARTO</a>
             </div>
         </footer>
