@@ -8,6 +8,13 @@ L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r
     maxZoom: 19
 }).addTo(map);
 
+const search = new GeoSearch.GeoSearchControl({
+  provider: new GeoSearch.OpenStreetMapProvider(),
+  style: 'bar'
+});
+
+map.addControl(search);
+
 const canvasRenderer = L.canvas({ padding: 0.5 });
 const mapElement = document.getElementById("map");
 
@@ -27,7 +34,7 @@ fetch("walls.geojson")
         mapElement.style.visibility = "visible";
         map.invalidateSize();
 
-        const isMobile = window.innerWidth < 768;
+        const isMobile = window.innerWidth < 900;
         map.fitBounds(layer.getBounds(), {
             paddingTopLeft: isMobile ? [0, 0] : [300, 20] 
         });

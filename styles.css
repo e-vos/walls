@@ -25,6 +25,27 @@ html, body {
     background: #cad2d3;
 }
 
+.leaflet-geosearch-bar {
+    background: none;
+    position: relative;
+    display: block;
+    height: auto;
+    width: 400px;
+    max-width: calc(100% - 120px);
+    margin: 20px auto 0;
+    cursor: auto;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.leaflet-container {
+    font-family: 'Inter', sans-serif;
+}
+
+.reset {
+    display: none;
+}
+
 .info-panel {
     position: absolute;
     top: 20px;
@@ -229,7 +250,7 @@ p {
 
 .divider {
     margin: 0 8px;
-    color: #d1d5db;
+    color: var(--text-muted);
 }
 
 #panel-toggle {
@@ -250,7 +271,13 @@ p {
     color: var(--text-main);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1500px) {
+    .leaflet-geosearch-bar {
+        display: none;
+    }
+}
+
+@media (max-width: 900px) {
     .info-panel {
         top: auto;
         bottom: 0;
