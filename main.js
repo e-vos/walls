@@ -32,7 +32,7 @@ fetch("walls.geojson")
             paddingTopLeft: isMobile ? [0, 0] : [300, 20] 
         });
     })
-
+    
 const toggleBtn = document.getElementById('panel-toggle');
 const panel = document.querySelector('.info-panel');
 
