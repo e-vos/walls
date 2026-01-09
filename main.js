@@ -4,16 +4,52 @@ const map = L.map("map", {
     attributionControl: false
 }).setView([41.5801, -71.4774], 10);
 
-L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-    maxZoom: 19
-}).addTo(map);
+// const search = new GeoSearch.GeoSearchControl({
+//   provider: new GeoSearch.OpenStreetMapProvider(),
+//   style: 'bar'
+// });
 
-const search = new GeoSearch.GeoSearchControl({
-  provider: new GeoSearch.OpenStreetMapProvider(),
-  style: 'bar'
+// map.addControl(search);
+
+const roads = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+    maxZoom: 19,
 });
 
-map.addControl(search);
+const satellite = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+	attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community',
+    maxZoom: 19,
+});
+
+roads.addTo(map);
+
+const baseMaps = {
+    "Roads": roads,
+    "Satellite": satellite
+};
+
+const layersControl = L.control.layers(baseMaps, null, { position: "topright" }).addTo(map);
+
+function updateLayersControlPosition() {
+    const isMobile = window.innerWidth <= 800;
+    map.removeControl(layersControl);
+    layersControl.options.position = isMobile ? "bottomright" : "topright";
+    layersControl.addTo(map);
+}
+
+updateLayersControlPosition();
+window.addEventListener("resize", updateLayersControlPosition);
+
+const miniMap = new L.Control.MiniMap(
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+        attribution: '',
+        subdomains: 'abcd',
+        maxZoom: 11,
+    }),
+    {
+        toggleDisplay: false,
+        zoomLevelOffset: -4,
+    }
+).addTo(map);
 
 const canvasRenderer = L.canvas({ padding: 0.5 });
 const mapElement = document.getElementById("map");
@@ -25,7 +61,7 @@ fetch("walls.geojson")
             renderer: canvasRenderer,
             interactive: false,
             style: {
-                color: "#2563eb",
+                color: "#dd0000",
                 weight: 1.5,
                 opacity: 1
             }

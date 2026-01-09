@@ -2,6 +2,7 @@
     --text-main: #111827;
     --text-muted: #6b7280;
     --primary: #2563eb;
+    --secondary: #dd0000;
     --surface: #ffffff;
     --bg-citation: #f3f4f6;
     --border: #e5e7eb;
@@ -25,9 +26,12 @@ html, body {
     background: #cad2d3;
 }
 
-.leaflet-geosearch-bar {
+/* .leaflet-geosearch-bar {
     background: none;
-    position: relative;
+    position: fixed;
+    top: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
     display: block;
     height: auto;
     width: 400px;
@@ -36,7 +40,7 @@ html, body {
     cursor: auto;
     z-index: 1000;
     box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-}
+} */
 
 .leaflet-container {
     font-family: 'Inter', sans-serif;
@@ -46,10 +50,44 @@ html, body {
     display: none;
 }
 
+.leaflet-control-minimap {
+    border: none !important;
+    border-radius: 12px;
+    box-shadow: var(--shadow-lg) !important;
+    position: fixed;
+    right: 2rem;
+    bottom: 2rem;
+}
+
+.leaflet-control-minimap,
+.leaflet-control-minimap .leaflet-container {
+    width: 225px !important;
+    height: 225px !important;
+}
+
+.leaflet-control-minimap .leaflet-interactive {
+    stroke: var(--accent) !important;
+    stroke-width: 2px !important;
+    fill: var(--primary) !important;
+}
+
+.leaflet-control-zoom {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+}
+
+.leaflet-control-layers {
+    position: fixed;
+    right: 20px;
+    top: 20px;
+}
+
 .info-panel {
     position: absolute;
-    top: 20px;
-    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 2rem;
     width: 450px;
     max-height: calc(100vh - 40px);
     background: var(--surface);
@@ -60,6 +98,7 @@ html, body {
     display: flex;
     flex-direction: column;
     transition: transform 0.6s ease, opacity 0.6s ease;
+    overflow-x: hidden;
 }
 
 .panel-header {
@@ -130,7 +169,7 @@ p {
     text-transform: uppercase;
     letter-spacing: 0.05em;
     font-weight: 700;
-    color: #9c0000;
+    color: var(--secondary);
     margin-bottom: 8px;
 }
 
@@ -150,8 +189,8 @@ p {
 }
 
 #use-conditions {
-    border-bottom: 1px solid #9c0000;
-    color: #9c0000;
+    border-bottom: 1px solid var(--secondary);
+    color: var(--secondary);
     cursor: pointer;
     display: inline-block;
 }
@@ -204,6 +243,19 @@ p {
     line-height: 1.6;
 }
 
+.use-contact {
+    color: var(--text-main);
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.6s;
+}
+
+.use-contact:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
 #conditions-panel .attribution {
     padding: 12px;
     background: rgba(0, 0, 0, 0.1);
@@ -233,17 +285,22 @@ p {
 }
 
 .panel-footer {
-    padding: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 16px;
     border-top: 1px solid var(--border);
-    font-size: 0.75rem;
+    font-size: 0.6rem;
     color: var(--text-muted);
     background: #f9fafb;
+    white-space: nowrap;
 }
 
 .panel-footer a {
     color: var(--text-muted);
     text-decoration: none;
 }
+
 .panel-footer a:hover {
     color: var(--primary);
 }
@@ -257,7 +314,7 @@ p {
     display: none;
     position: absolute;
     top: 20px;
-    right: 20px;
+    left: 20px;
     z-index: 2000;
     background: var(--surface);
     border: none;
@@ -277,15 +334,47 @@ p {
     }
 }
 
+@media (max-width: 1300px) {
+    .info-panel {
+        position: absolute;
+        top: 0;
+        transform: translateY(0);
+        left: 0;
+        width: 450px;
+        max-height: 100vh;
+        background: var(--surface);
+        z-index: 1000;
+        border-radius: 0;
+        box-shadow: var(--shadow-lg);
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.6s ease, opacity 0.6s ease;
+        overflow-x: hidden;
+    }
+
+    .leaflet-control-minimap {
+        display: none;
+    }
+}
+
 @media (max-width: 900px) {
     .info-panel {
         top: auto;
         bottom: 0;
         left: 0;
+        transform: none;
         width: 100%;
         max-height: 60vh;
         border-radius: 20px 20px 0 0;
         margin: 0;
+    }
+
+    .cover-image {
+        margin-left: 50%;
+        transform: translateX(-50%);
+        height: 200px;
+        width: 90%;
     }
     
     #panel-toggle {

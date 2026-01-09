@@ -8,7 +8,8 @@
     <link rel="icon" type="image/x-icon" href="favicon.ico">
 
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <link rel="stylesheet" href="https://unpkg.com/leaflet-geosearch@3.0.0/dist/geosearch.css" />
+    <!-- <link rel="stylesheet" href="https://unpkg.com/leaflet-geosearch@3.0.0/dist/geosearch.css" /> -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-minimap/dist/Control.MiniMap.min.css" />
     
     <link rel="preconnect" href="https://rsms.me/">
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
@@ -27,7 +28,7 @@
         <strong>1. Data use</strong><br>The data is provided for non-commercial use only. Any use of the data, whether direct or indirect, that supports, enables, or is associated with a commercial enterprise, product, service, or revenue-generating activity is strictly prohibited without prior notarized written permission from Elliot Vosburgh (“the Author”). Prohibited activities include, but are not limited to, sale, licensing, subscription services, consulting, or incorporation into commercial products. Commercial products include but are not limited to wall building, stonemasonry, stone harvesting, and wall clearing.
       </p>
       <p>
-        <strong>2. Attribution</strong><br>Permission is granted to use, reproduce, and modify the data for personal, educational, or research purposes, provided that such use is strictly non-commercial. Regardless of purpose, use of this data <em>must include</em> clear and visible attribution to the Author using the following format:
+        <strong>2. Attribution</strong><br>Permission is granted to use, reproduce, and modify the data for personal, educational, or research purposes, provided that such use is strictly non-commercial. "Use" and "reproduction" include, but are not limited to, news media, videos, articles, reports, lessons, lectures, and images. Regardless of purpose, any implementation of this data <strong><em>must include clear and visible attribution to the Author</em></strong> using the following format:
       </p>
       <p class="attribution"> Elliot Vosburgh (2025), Rhode Island Stone Wall Mapping Project</p>
       <p>
@@ -40,7 +41,7 @@
         <strong>5. Termination of usage rights</strong><br>Any violation of these Terms of Use, including failure to provide proper attribution or engaging in prohibited commercial activities, will result in immediate termination of all rights granted under these terms. Upon termination, the user must cease all use of the data and destroy any copies in their possession.
       </p>
       <p>
-        <strong>6. Authorship</strong><br>All rights not expressly granted are reserved. Contact <a href="mailto:elliot@vosburgh.dev">elliot@vosburgh.dev</a> with questions regarding your usage privileges.
+        <strong>6. Authorship</strong><br>All rights not expressly granted are reserved. Contact <a class="use-contact" href="mailto:elliot@vosburgh.dev">elliot@vosburgh.dev</a> with questions regarding your usage privileges.
       </p>
     </div>
 
@@ -62,33 +63,35 @@
                 </p>
             </section>
 
+            <div class="details">
+                <p>
+                  Over 5,000 miles of walls were inventoried using an original methodology applied to the 2022 Rhode Island Statewide LiDAR dataset. The wall networks reveal a rich agricultural history influenced by settlement patterns, indigenous relationships, topography, and soil.
+                </p>
+                <p>
+                  With the completion of the delineation phase of the study, RISWMP has moved into its maintenance, research, and outreach phase. Minor oversights, errors, and other flaws exist in this dataset. Research is being conducted from several perspectives, including  wall geohistorical patterns, ecohistory, and ecology.
+                </p>
+                <p>
+                  RISWMP actively promotes educational opportunities throughout southern New England on historical preservation and environmental conservation. For more information on these topics, or for questions related to the data, please <a class="use-contact" href="mailto:elliot@vosburgh.dev">email the Author</a>.
+            </div>
+
             <div class="citation-box">
                 <div class="citation-label">REQUIRED CITATION</div>
                 <p class="citation-text">
                   Elliot Vosburgh (2025), <em>Rhode Island Stone Wall Mapping Project</em>
                 </p>
                 <p class="citation-sub">
-                  By using this data, you agree to attribute the Author. You further agree to adhere to the use conditions <span id="use-conditions">outlined here</span>. The Rhode Island Stone Wall Mapping Project is not affiliated with the University of Rhode Island.
+                  By using this data, you agree to attribute the Author. You further agree to adhere to the use conditions <span id="use-conditions">outlined here</span>.
             </div>
 
-            <div class="details">
-                <p>
-                  Over 5,000 miles of walls were inventoried using an original methodology applied to the 2022 Rhode Island Statewide LiDAR dataset. The wall networks reveal a rich agricultural history influenced by settlement patterns, indigenous relationships, topography, and soil.
-                </p>
-                <p>
-                  These relics are under threat from development, vandalism, and theft. RISWMP actively promotes historical preservation efforts and educational opportunities throughout southern New England.
-                </p>
-                <p>
-                  With the completion of the delineation phase of the study, RISWMP has moved into its maintenance, research, and outreach phase. Minor oversights, errors, and other flaws exist in this dataset. In this new phase, RISWMP data is dynamic and evolving. Research is being conducted from several perspectives, including  wall geohistorical patterns, ecohistory, and ecology. Additionally, work is being done to place Rhode Island's stone walls in the context of the rest of New England.
-                </p>
-            </div>
         </div>
 
         <footer class="panel-footer">
             <div class="links">
                 &copy; <a href="mailto:elliot@vosburgh.dev">Elliot Vosburgh</a>
                 <span class="divider">|</span>
-                &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors and <a href="https://carto.com/attributions">CARTO</a>
+                &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors & <a href="https://carto.com/attributions">CARTO</a> (roads)
+                <span class="divider">|</span>
+                &copy; <a href="https://esri.com">Esri</a> (satellite)
             </div>
         </footer>
     </main>
@@ -98,7 +101,8 @@
     </button>
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="https://unpkg.com/leaflet-geosearch@latest/dist/bundle.min.js"></script>
+    <!-- <script src="https://unpkg.com/leaflet-geosearch@latest/dist/bundle.min.js"></script> -->
+    <script src="https://unpkg.com/leaflet-minimap/dist/Control.MiniMap.min.js"></script>
     <script type="module" src="main.js"></script>
   </body>
 </html>
